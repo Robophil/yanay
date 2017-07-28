@@ -14,7 +14,11 @@ import {
 
 // create a component
 export class Login extends Component {
+    static navigationOptions = {
+    }
     render() {
+        const { navigate } = this.props.navigation
+        
         return (
             <Image style={styles.container} source={require('../image/selfie.jpg')} resizeMode={'cover'}>
                 <View style={styles.container}>
@@ -30,16 +34,22 @@ export class Login extends Component {
                             <Icon active name='lock' style={[styles.text]} />
                             <Input placeholder='password' placeholderTextColor={'white'} style={[styles.text, styles.input]} />
                         </Item>
-                        <Button info style={[styles.button]}><Text style={[styles.text]}> Login </Text></Button>
+                        <Button info style={[styles.button]} onPress={() =>
+                            navigate('LoginSimple', {})
+                        }><Text style={[styles.text]}> Login </Text></Button>
                     </View>
                     <View style={styles.formContainer}>
                         <View style={[styles.rowContainer]}>
-                            <View  style={[styles.flexRow, styles.line]}/>
+                            <View style={[styles.flexRow, styles.line]} />
                             <Text style={[styles.text]}>or</Text>
-                            <View  style={[styles.flexRow, styles.line]}/>
+                            <View style={[styles.flexRow, styles.line]} />
                         </View>
-                        <Button primary style={[styles.button]}><Text style={[styles.text]}> Login via Facebook </Text></Button>
-                        <Button danger style={[styles.button]}><Text style={[styles.text]}> Login via Google+ </Text></Button>
+                        <Button primary style={[styles.button]} onPress={() =>
+                            navigate('LoginSimple', {})
+                        }><Text style={[styles.text]}> Login via Facebook </Text></Button>
+                        <Button danger style={[styles.button]} onPress={() =>
+                            navigate('LoginSimple', {})
+                        }><Text style={[styles.text]}> Login via Google+ </Text></Button>
                     </View>
                 </View>
             </Image>

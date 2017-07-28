@@ -10,16 +10,22 @@ import { Button } from 'native-base'
 
 // create a component
 export class Main extends Component {
+    static navigationOptions = {
+    }
     render() {
+        const { navigate } = this.props.navigation
+
         return (
             <Image style={styles.container} source={require('../image/selfie.jpg')} resizeMode={'cover'}>
                 <View style={styles.container}>
                     <Image style={styles.logo} source={require('../image/wifi.png')} resizeMode={'cover'} />
                     <View>
-                        <Button bordered style={styles.button}>
-                             <Text style={styles.text}>Login</Text>
+                        <Button bordered style={styles.button} onPress={() =>
+                            navigate('Login', {})
+                        }>
+                            <Text style={styles.text}>Login</Text>
                         </Button>
-                        <Button bordered style= {styles.button}>
+                        <Button bordered style={styles.button}>
                             <Text style={styles.text}>Sign up</Text>
                         </Button>
                     </View>
